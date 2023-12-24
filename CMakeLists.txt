@@ -28,6 +28,11 @@ set_property(CACHE HJSON_NUMBER_PARSER PROPERTY STRINGS "StringStream" "StrToD" 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS "Needed for shared libs on Windows" ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 if(HJSON_VERSIONED_INSTALL)
   set(include_dest "include/hjson-${PROJECT_VERSION}")
   set(cmake_dest "lib/hjson-${PROJECT_VERSION}")
