@@ -228,7 +228,7 @@ static std::string _readMLString(Parser *p) {
 
 static void _toUtf8(std::vector<char> &res, uint32_t uIn) {
   if (uIn < 0x80) {
-    res.push_back(uIn);
+    res.push_back((char)uIn);
   } else if (uIn < 0x800) {
     res.push_back(0xc0 | ((uIn >> 6) & 0x1f));
     res.push_back(0x80 | (uIn & 0x3f));

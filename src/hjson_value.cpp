@@ -357,6 +357,7 @@ void Value::insert(const std::string&key, Value&& other)
     try {
       prv->m->m.insert_or_assign(key, std::move(other));
     } catch(const std::out_of_range&) {}    
+    return;
   default:
     throw type_mismatch("Must be of type Map for that operation.");
   }
@@ -436,6 +437,7 @@ const Value& Value::operator[](int index) const {
         assert(it != prv->m->m.end());
         return it->second;
       }
+      break;
     default:
       break;
     }
@@ -466,6 +468,7 @@ Value& Value::operator[](int index) {
         assert(it != prv->m->m.end());
         return it->second;
       }
+      break;
     default:
       break;
     }
