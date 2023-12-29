@@ -404,7 +404,7 @@ static void _str(Encoder *e, const Value& value, bool isRootObject, bool isObjEl
         *e->os << commentAfter;
       }
       if (!value.empty() && (!e->opt.comments || commentAfter.empty() ||
-        !e->opt.separator && (commentAfter.find("\n") == std::string::npos)))
+        (!e->opt.separator && (commentAfter.find("\n") == std::string::npos))))
       {
         _writeIndent(e, e->indent - 1);
       }
@@ -448,7 +448,7 @@ static void _str(Encoder *e, const Value& value, bool isRootObject, bool isObjEl
       }
       if (!value.empty() && (!e->opt.omitRootBraces || !isRootObject) &&
         (!e->opt.comments || commentAfter.empty() ||
-        !e->opt.separator && (commentAfter.find("\n") == std::string::npos)))
+        (!e->opt.separator && (commentAfter.find("\n") == std::string::npos))))
       {
         _writeIndent(e, e->indent - 1);
       }
@@ -503,8 +503,8 @@ static void _objElem(Encoder *e, const std::string& key, const Value& value, boo
     if (e->opt.comments) {
       *e->os << commentAfterPrevObj;
     }
-    if (!hasCommentBefore || !e->opt.separator &&
-      (value.get_comment_before().find("\n") == std::string::npos))
+    if (!hasCommentBefore || (!e->opt.separator &&
+      (value.get_comment_before().find("\n") == std::string::npos)))
     {
       _writeIndent(e, e->indent);
     }

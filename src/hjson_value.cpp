@@ -441,6 +441,7 @@ const Value& Value::operator[](int index) const {
     default:
       break;
     }
+    [[fallthrough]];
   default:
     throw type_mismatch("Must be of type Undefined, Vector or Map for that operation.");
   }
@@ -472,6 +473,7 @@ Value& Value::operator[](int index) {
     default:
       break;
     }
+    [[fallthrough]];
   default:
     throw type_mismatch("Must be of type Undefined, Vector or Map for that operation.");
   }
